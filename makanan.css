@@ -1,0 +1,730 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+
+}
+
+header{   
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 999; /* Menempatkan header di atas slider */
+    background: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px 0 100px;
+}
+
+nav h1{
+    font-family: 'Pacifico', sans-serif;
+    color: #ffbb00;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+nav h2{
+    font-family: 'Kaushan Script', sans-serif;
+    color: #ffbb00;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+nav h2 span{
+    background: #fff;
+    padding: 0 8px;
+    color: #000000;
+    letter-spacing: 1px; 
+}
+
+nav a{
+    font-size: 24px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    font-family: "Old Standard TT", serif;
+    cursor: default;
+}
+
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffbb00;
+    transition: width 0.7s;
+    border-bottom: 1px solid #ffbb00;
+    cursor: default;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover::after {
+    border-bottom: 1px solid #ffbb00;
+}
+
+.bar{
+    margin-top: 1%;
+}
+
+.bar a{
+    margin: 8px;
+    font-family: 'Poppins', sans-serif;
+    color: #ede3c9;
+    font-size: 20px;
+}
+
+header.sticky {
+    background-color: #fff; /* Warna background saat digulir */
+    box-shadow: 0 0 20px #000;
+    height: 70px;
+}
+
+header.sticky nav{
+    padding: 0 80px 0 100px;
+}
+
+header.sticky h2 span{
+    background: #000;
+    color: #fff;
+    font-weight: 400;
+}
+
+header.sticky nav a {
+    color: #000; /* Warna teks saat header menempel */
+}
+
+.section img{
+    width: 100%;
+}
+
+.section .judul .info{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:  15px 30px;
+    text-align: center;
+}
+
+.judul .info h2{
+    font-family: 'Kaushan Script', cursive;
+    color: #FAFF00;
+    font-size: 80px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+h2 span{
+    color: #fff;
+}
+
+.info h3{
+    color: #FAFF00;
+}
+
+.info h3 span{
+    color: #FAFF00;
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.informations{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.makanan{
+    display: flex;
+    justify-content: center;
+}
+
+.makanan .img-makanan{
+    margin-right: 0;
+    width: 33%;
+    height: 10%;
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+}
+
+.makanan .img-minuman{
+    margin-right: 1%;
+    width: 28%;
+    height: 10%;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.information{
+    width: 40%;
+    margin-left: 5%;
+    margin-right: -7%;
+    padding: 20px 5px;
+}
+
+.information h1{
+    margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+    color: #ffbb00;
+    font-size: 35px;
+    margin-top: -10px;
+}
+
+.information h1 span{
+    font-family: '', sans-serif;
+    font-weight: 400;
+}
+
+.information p{
+    font-size: 22px;
+    width: 100%;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.img{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: url(img/img-review.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 70vh;
+}
+
+.img img{
+    margin: 35px 30px;
+    width: 18%;
+    border-radius: 50px;
+    box-shadow: 0 0 50px #ffbb00;
+}
+
+.video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 0 1rem 0;
+}
+
+.video h1{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 60px;
+    color: #ffbb00;
+}
+
+.video h1 span{
+    color: #000;
+}
+
+.video video{
+    width:50%;
+    margin-top: 20px;
+    border-radius: 30px;
+    margin-bottom: 5%;
+}
+
+.video hr{
+    width: 15%;
+    margin: 1% auto;
+    height: 7px;
+    border-radius: 10px;
+    background-color: rgb(255, 225, 105);
+    margin-bottom: 20px;    
+}
+
+/*----------Contact-------------*/
+.maps{
+    height: 70vh;
+}
+
+.contact{
+    display: flex;
+    margin: 30px 10px 0 250px;
+}
+
+.contact h2{
+    margin-bottom: 10px;
+    font-family: 'Pacifico', cursive;
+    color: #ffb700;
+    font-size: 35px;
+    margin-top: -10px;
+    font-weight: 400;
+}
+
+.contact h2 span{
+    color: #ffbb00;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact iframe{
+    margin-right: 30px;
+    border-radius: 25px;
+}
+
+.contact form{
+    padding: 20px 0 20px 0;
+}
+
+.contact .form-1{
+    padding: 10px 0;
+}
+
+.margin{
+    margin-top: 20px;
+}
+
+.contact .form-1 input{
+    width: 110%;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0 10px;
+    font-family: 'Poppins', cursive;
+}
+
+.contact textarea{
+    padding: 10px 10px;
+    font-family: 'Poppins', cursive;
+    resize: none;
+    border-radius: 15px;
+    width: 110%;
+}
+
+.contact .btn{
+    padding: 10px;
+    width: 50%;
+    border-radius: 15px;
+    font-size: 13px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #ffb700;
+    margin-top: 5px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 1px;
+    font-family: 'Poppins', arial, sans-serif;
+}
+
+/*----------FOOTER-------------*/
+footer {
+    bottom: 0;
+}
+
+.footer {
+    background-color: #000000;
+    box-sizing: border-box;
+    width: 100%;
+    font: bold 16px sans-serif;
+    padding: 50px 50px 60px 50px;   
+}
+
+.footer .tp{
+    display: flex;
+    padding: 2rem;
+}
+
+.footer .footer-right {
+    width: 60%;
+    margin-right: 5rem;
+    padding: 15px;
+}
+
+.footer .footer-about{
+    line-height: 20px;
+    color: #92999f;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer .footer-about span{
+    display: block;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+}
+
+.footer-sos h1{
+    color: #fff;
+}
+
+.footer .footer-media{
+    margin-top: 25px;
+}
+
+.footer .footer-media a{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #000000;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    transition: .5s ;
+}
+
+.footer .footer-media a:hover{
+    background-color: #ffb700;
+}
+
+.footer hr{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.footer h4{
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+    nav{
+        padding: 20px 50px 0 70px;
+    }
+
+    header.sticky nav{
+        padding: 0 50px 0 70px;
+    }
+
+    .section img{
+        width: 100%;
+        height: 40vh;
+    }
+
+    nav a{
+        letter-spacing: 1px;
+    }
+
+    .judul .info h2{
+        font-family: 'Kaushan Script', cursive;
+        color: #FAFF00;
+        font-size: 70px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin: 0;
+    }
+    
+    h2 span{
+        color: #fff;
+    }
+    
+    .judul .info p{
+        color: #fff;
+        font-size: 30px;
+        margin-bottom: 6%;
+        font-family: "Kaushan Script", sans-serif;
+    }
+    
+    .info h3{
+        color: #FAFF00;
+    }
+    
+    .info h3 span{
+        color: #FAFF00;
+        font-family: 'Pacifico', cursive;
+        letter-spacing: 2px;
+        font-weight: 400;
+    }
+
+    .section .judul .info{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding:  15px 30px;
+        text-align: center;
+    }
+
+    .informations{
+        height: 70vh;
+    }
+
+    .information p{
+        font-size: 18px;
+    }
+    
+    .makanan .img-makanan{
+        margin-right: 2%;
+        width: 40%;
+    }
+
+    .makanan .img-minuman{
+        margin-right: 2%;
+        width: 30%;
+    }
+
+    .img{
+        height: auto;
+    }
+
+    .img img{
+        width: calc(50% - 20px); /* Mengatur lebar gambar agar dua gambar muat dalam satu baris */
+        width: 20%;
+        margin: 30px 70px;
+    }   
+
+    .video video{
+        width: 70%;
+    }
+
+    .contact {
+        margin: 30px 10px 0 50px;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+
+@media (max-width: 768px) {
+    .judul .info h2{
+        font-size: 60px;    
+    }
+
+    .info h3{
+        font-size: 12px;
+    }
+
+    .makanan{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0 2rem 0;
+    }
+
+    .makanan .img-makanan .img-minuman{
+        margin-top: 20px;
+    }
+
+    .informations{
+        height: 80vh;
+    }
+
+    .makanan .information{
+        width: 86%;
+    }
+
+    .makanan .information p{
+        width: 95%;
+        font-size: 20px;
+    }
+
+    .img{
+        height: auto;
+    }
+
+    .img img{
+        width: 35%;
+        margin: 20px 50px;
+    }
+
+    .video h1{
+        font-size: 45px;
+    }
+
+    .maps{
+        height: 128vh;
+    }
+
+    .contact{
+        display: flex;
+        flex-direction: column;
+        margin: 30px 10px 0 20px;
+    }
+
+    .contact .form-1 input{
+        width: 90%;
+    }
+
+    .contact textarea{
+        width: 90%;
+    }
+
+    .contact iframe{
+        width: 99%;
+    }
+
+    .contact .btn{
+        width: 25%;
+    }
+
+    .footer-sos h1{
+        font-size: 22px;
+    }
+
+    .footer .footer-right{
+        margin-right: 1px;
+    }
+
+    .footer .tp{
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 426px) {
+    header{
+        height: 90px;
+    }
+
+    header.sticky{
+        height: 50px;
+    }
+
+    nav{
+        padding: 20px 20px 0 20px;
+    }
+
+    header.sticky nav{
+        padding: 0 20px 0 20px;
+    }
+
+    nav h1{
+        font-size: 15px;
+    }
+    
+    nav h2{
+        font-size: 15px;
+    }
+    
+    nav h2 span{
+        background: #fff;
+        padding: 0 8px;
+        color: #000000;
+        letter-spacing: 1px; 
+    }
+    
+    .bar a{
+        font-size: 15px;
+    }
+
+    .section .judul .info {
+        padding: 0;
+        width: 50%;
+    }
+
+    .section img{
+        height: 34vh;
+    }
+
+    .judul .info h2{
+        font-size: 40px;    
+    }
+
+    .info h3{
+        font-size: 10px;
+    }
+
+    .makanan {
+        margin-top: -10px;
+    }
+
+    .makanan .img-minuman{
+        width: 35%;
+    }
+
+    .informations{
+        height: 80vh;
+    }
+
+    .information h1{
+        font-size: 25px;
+    }
+
+    .makanan .information p{
+        font-size: 16px;
+    }
+
+    .img img{
+        margin: 20px 20px;
+        border-radius: 15px;
+    }
+
+    .video{
+        padding: 20px 0;
+    }
+
+    .video video{
+        width: 90%;
+    }
+
+    .video h1{
+        font-size: 35px;
+    }
+
+    .video hr{
+        width: 26%;
+        height: 4px;
+        margin-top: 10px;
+    }
+
+    .footer .tp{
+        flex-direction: column-reverse;
+    }
+    
+    .footer-sos{
+        text-align: center;
+    }
+
+    .footer-sos h1{
+        padding: 10px 15px;
+    }
+
+    .footer-media {
+        margin-top: 19px;
+    }
+
+    .footer .footer-right p span {
+        font-size: 1.9rem;
+        text-align: center;
+    }
+
+    .footer hr {
+        width: 80%;
+    }
+
+    .footer-about {
+        width: 150%;
+    }
+}

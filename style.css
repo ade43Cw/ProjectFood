@@ -1,0 +1,846 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header{   
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 999; /* Menempatkan header di atas slider */
+    background: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px 0 100px;
+}
+
+nav h1{
+    font-family: 'Poppins', sans-serif;
+    color: #ffbb00;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+nav h2{
+    font-family: 'Kaushan Script', sans-serif;
+    color: #ffbb00;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+nav h2 span{
+    background: #fff;
+    padding: 0 10px;
+    color: #000000;
+    letter-spacing: 2px; 
+}
+
+nav a{
+    font-size: 24px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    font-family: "Old Standard TT", serif;
+    cursor: default;
+}
+
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffbb00;
+    transition: width 0.7s;
+    border-bottom: 1px solid #ffbb00;
+    cursor: default;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover::after {
+    border-bottom: 1px solid #ffbb00;
+}
+
+.bar{
+    margin-top: 1%;
+    /* position: fixed; */
+    z-index: 1000;
+}
+
+.bar a{
+    margin: 8px;
+    font-family: 'Poppins', sans-serif;
+    color: #ede3c9;
+    font-size: 20px;
+}
+
+header.sticky {
+    background-color: #fff; /* Warna background saat digulir */
+    box-shadow: 0 0 20px #000;
+    height: 70px;
+}
+
+header.sticky nav{
+    padding: 0 80px 0 100px;
+}
+
+header.sticky h2 span{
+    background: #000;
+    color: #fff;
+    font-weight: 400;
+}
+
+header.sticky nav a {
+    color: #000; /* Warna teks saat header menempel */
+}
+
+#menu-icon {
+    display: none;
+}
+
+.home{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: #000000;
+}
+
+.img-slider{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: #000000;
+}
+
+.slide{
+    text-align: center;
+}
+
+.img-slider .slide{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+.img-slider .slide.active{
+    clip-path: circle(150% at 0 50%);
+    transition: 2s;
+    transition-property: clip-path;
+}
+
+.img-slider .slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.img-slider .slide img{
+    z-index: 1;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.img-slider .slide .info {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:  15px 30px;
+}
+
+
+.img-slider .slide .info  h2{
+    font-family: 'Kaushan Script', cursive;
+    color: #FAFF00;
+    font-size: 100px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+h2 span{
+    color: #fff;
+}
+
+.img-slider .slide .info p{
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 6%;
+    font-family: "Kaushan Script", sans-serif;
+}
+
+.slide .info h2,
+.slide .info p,
+.slide .info h3 {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide.active .info h2,
+.slide.active .info p,
+.slide.active .info h3 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+.img-slider .slide .info a{
+    background: rgba(0, 0, 0, 0.3);
+    color: rgb(225, 255, 0);
+    font-size: 25px;
+    border-radius: 20px;
+    padding: 8px 25px;
+    text-decoration: none;
+}
+
+.img-slider .navigasi{
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    bottom: -200px;
+    left: 48%;
+    transform: translateY(-50%);
+}
+
+.img-slider .navigasi .btn{
+    background: rgba(255, 255, 255, 0);
+    width: 12px;
+    height: 12px;
+    margin: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.img-slider .navigasi .btn.active{
+    background: rgb(255, 255, 255);
+    box-shadow:  0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.info h3{
+    color: #FAFF00;
+}
+
+.info h3 span{
+    color: #FAFF00;
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.tentang {
+    height: 100vh;
+    background: linear-gradient(to right,rgba(245,245,245,.3),rgba(245, 245, 245, .2)),url(https://d33wubrfki0l68.cloudfront.net/daac8858fd4a0ccea44f59dfd079c3c16c263f33/c157c/assets/svg/common-bg.svg); 
+    background-size: cover;
+    background-position: center;
+    padding: 3.5rem 0 1rem 0;
+}
+
+.wrapper{
+    margin-top: 0;
+}
+
+.judul{
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+.garis{
+    width: 10%;
+    margin: 1% auto;
+    height: 7px;
+    border-radius: 10px;
+    background-color: rgb(255, 225, 105);
+    margin-bottom: 20px;
+}
+
+.menu-about{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-about img {
+    margin-right: 5%;
+    width: 27%;
+    height: 10%;
+    border-radius: 50%;
+}
+
+.information {
+    width: 40%;
+    margin-left: 8%;
+    margin-right: -8%;
+}
+
+.tentang.active .menu-about img {
+    animation: slideRight 2s forwards;
+}
+
+.tentang.active .information {
+    animation: slideLeft 2s forwards;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.information h2{
+    margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+    color: #ffb700;
+    font-size: 35px;
+    margin-top: -10px;
+    font-weight: 400;
+}
+
+.information h2 span{
+    color: #ffbb00;
+    font-family: 'Poppins', sans-serif;
+}
+
+.information p{
+    font-size: 22px;
+    line-height: 2;
+}
+
+/*--------------------- Menu --------------------*/
+#Menu{
+    height: 93vh;
+    background-image: url('img/background_menu.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menu{
+    margin-top: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.makanan{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.makanan img{
+    width: 55%;
+    border-radius: 50px;
+}
+
+
+.menu .btn {
+    margin-top: 3%;
+    padding: 10px 30px;
+    border-radius: 25px;
+    border: 1px;
+    font-family: 'Poppins', cursive;
+    font-size: 15px;
+    background-color: #ffbb00;
+    color: #000000;
+    animation: slideIn 2s ease forwards; /* Terapkan animasi di sini */
+    text-decoration: none;
+}
+
+.judul-2 span{
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #ffb700;
+    font-weight: 400;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    animation: slideInTitle 2s ease forwards; /* Terapkan animasi di sini */
+}
+
+.judul-2{
+    color: #ffbb00;
+}
+
+.jarak{
+    display: flex;
+    padding: 0 10%;
+}
+
+/*--------------------- REVIEW --------------------*/
+.testimonials{
+    background: url(img/img-review.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 80vh;
+    margin-top: -10px;
+}
+
+
+.container{
+    max-width: 1170px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.section-header{
+    padding: 4rem 0 1rem 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header .title{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 50px;
+    margin-top: 10px;
+    color: #fbff00;
+}
+
+.testimonial{
+    padding: 100px 0;
+}
+
+.testimonial-item{
+    background: rgb(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 30px;
+    width: 30%;
+}
+
+.testimonial-item .info{
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-item img{
+    width: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.testimonial-item .text-box{
+    line-height: 10px;
+}
+
+.testimonial-item .name{
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #FAFF00;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 10px;
+}
+
+.testimonial-item .job{
+    margin-top: 3%;
+    text-transform: capitalize;
+    color: #ffffff;
+}
+
+.testimonial-item p{
+    margin-top: 20px;
+    color: #dbdbdb;
+    width: 100%;
+}
+
+.testimonial-item .rating{
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ffbb00;
+}
+
+.testimonials .swiper-pagination{
+    position: relative;
+    margin-top: 40px;
+    bottom: auto;
+}
+
+
+/*----------FOOTER-------------*/
+footer {
+    bottom: 0;
+}
+
+.footer {
+    background-color: #000000;
+    box-sizing: border-box;
+    width: 100%;
+    font: bold 16px sans-serif;
+    padding: 50px 50px 60px 50px;   
+}
+
+.footer .tp{
+    display: flex;
+    padding: 2rem;
+}
+
+.footer .footer-right {
+    width: 60%;
+    margin-right: 5rem;
+    padding: 15px;
+}
+
+.footer .footer-about{
+    line-height: 20px;
+    color: #92999f;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer .footer-about span{
+    display: block;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.footer-sos h1{
+    color: #fff;
+}
+
+.footer .footer-media{
+    margin-top: 25px;
+}
+
+.footer .footer-media a{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #000000;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    transition: .5s ;
+}
+
+.footer .footer-media a:hover{
+    background-color: #ffb700;
+}
+
+.footer hr{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.footer h4{
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 2rem;
+}
+
+@media (max-width: 1440px) {
+    .home{
+        height: 90vh;
+    }
+
+    .img-slider .slide img{
+        object-fit: cover;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    nav{
+        padding: 20px 50px 0 50px;;
+    }
+
+    header.sticky nav{
+        padding: 0 50px 0 50px;
+    }
+
+    .home{
+        height: 90vh;
+    }
+
+    .img-slider .slide img{
+        height: 90vh;
+    }
+
+    .img-slider .slide .info h2 {
+        font-size: 80px;
+    }
+
+    .img-slider .slide .info {
+        width: auto;
+    }
+
+    .judul{
+        margin-top: 10px;
+    }
+
+    .menu-about img{
+        width: 33%;
+        margin-right: 2%;
+    }
+
+    .information{
+        margin-left: 5%;
+    }
+
+    .information p {
+        font-size: 20px;
+    }
+
+    #Menu{
+        height: 85vh;
+    }
+
+    .menu{
+        margin-top: 8%;
+    }
+}
+
+@media (max-width: 770px) {
+    .img-slider .slide .info h2 {
+        font-size: 60px;
+    }
+
+    .img-slider .slide .info p{
+        font-size: 25px;
+    }
+
+
+    .img-slider .slide img{
+        object-fit: cover;
+    }
+
+    .makanan img{
+        width: 75%;
+        gap: 4rem;
+    }
+
+    .tentang {
+        padding: 1.5rem 0 1rem 0;;
+    }
+
+    .menu-about {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0 2rem 0;
+    }
+
+    .information {
+        margin-top: 20px;
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 426px) {
+    header{
+        height: 90px;
+    }
+
+    header.sticky{
+        height: 50px;
+    }
+
+    nav{
+        padding: 20px 20px 0 20px;
+    }
+
+    header.sticky nav{
+        padding: 0 20px 0 20px;
+    }
+
+    nav h1{
+        font-size: 15px;
+    }
+    
+    nav h2{
+        font-size: 15px;
+    }
+    
+    nav h2 span{
+        background: #fff;
+        padding: 0 8px;
+        color: #000000;
+        letter-spacing: 1px; 
+    }
+
+    header.sticky #menu-icon{
+        color: #000000;
+    }
+
+    header.sticky{
+        position: fixed;
+    }
+
+    .info h3{
+        font-size: 14px;
+    }
+    
+    #menu-icon {
+        display: block;
+        color: #fff;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 999;
+    }
+
+    .bar:hover{
+        color: #0ef;
+    }
+
+    .active {
+        display: block !important;
+    }
+
+    .bar a{
+        display: block;
+        font-size: 1.5rem;
+        margin: 2rem 2rem;
+    }
+
+    #Menu{
+        height: 120vh;
+    }
+
+    .jarak{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .makanan{
+        margin-top: 20px;
+    }
+
+    .img-slider .navigasi{
+        left: 43%;
+    }
+
+    .information{
+        width: 90%;
+    }
+
+    .information h2{
+        font-size: 20px;
+    }
+
+
+    .information p{
+        font-size: 15px;
+    }
+
+    .footer .tp{
+        flex-direction: column-reverse;
+    }
+    
+    .footer-sos{
+        text-align: center;
+    }
+
+    .footer-sos h1{
+        padding: 10px 15px;
+    }
+
+    .footer-about{
+        width: 100%;
+    }
+
+    .footer-media {
+        margin-top: 19px;
+    }
+
+    .footer .footer-right p span {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .footer hr {
+        width: 80%;
+    }
+
+    .footer-about {
+        width: 150%;
+    }
+}
